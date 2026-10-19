@@ -1,0 +1,6 @@
+/model/manifest.json
+  Cache-Control: no-cache
+/model/ts-*
+  Cache-Control: public, max-age=31536000, immutable
+/vendor/*
+  Cache-Control: public, max-age=86400

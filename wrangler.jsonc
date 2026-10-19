@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "weatherstral",
+  "compatibility_date": "2026-10-01",
+  // Static site: everything in ./web is served as assets (see web/.assetsignore for what is left out).
+  "assets": { "directory": "./web" },
+  "routes": [{ "pattern": "weather.explodingcb.com", "custom_domain": true }]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "weatherstral",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI weather in your browser: Mistral's Timestral model forecasts the next 24 hours, client-side.",
+  "license": "MIT",
+  "scripts": {
+    "vendor": "mkdir -p web/vendor && cp node_modules/onnxruntime-web/dist/ort.wasm.min.mjs node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.mjs node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.wasm web/vendor/",
+    "dev": "python3 -m http.server 8765 --directory web",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "onnxruntime-web": "1.30.0"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.2"
+  }
+}

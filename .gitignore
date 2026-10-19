@@ -1,0 +1,18 @@
+# Generated or large: rebuild with the steps in the README
+web/model/
+web/vendor/
+web/test/fixture.json
+python/.venv/
+python/build/
+python/__pycache__/
+node_modules/
+.wrangler/
+.DS_Store
+
+# Local tooling and the unused first attempt
+.claude/
+GoofballWeather/
+
+# Brand: only the icon source is kept
+brand/*
+!brand/icon.svg

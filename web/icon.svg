@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="sky" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#63b3ff"/>
+      <stop offset="0.55" stop-color="#2f6fe0"/>
+      <stop offset="1" stop-color="#1b2f86"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0.22" cy="0.12" r="0.75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe27a" stop-opacity="0.75"/>
+      <stop offset="0.5" stop-color="#ffc83a" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffc83a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="0.38" cy="0.32" r="0.8">
+      <stop offset="0" stop-color="#fff8cc"/>
+      <stop offset="0.5" stop-color="#ffd23f"/>
+      <stop offset="1" stop-color="#ff9a1f"/>
+    </radialGradient>
+    <!-- user-space gradient so every cloud shape shades as one piece, with no seams -->
+    <linearGradient id="cloud" gradientUnits="userSpaceOnUse" x1="0" y1="400" x2="0" y2="800">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.6" stop-color="#eaf2ff"/>
+      <stop offset="1" stop-color="#bcd3f6"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="26" stdDeviation="26" flood-color="#0a1a5e" flood-opacity="0.38"/>
+    </filter>
+    <clipPath id="tile"><rect width="1024" height="1024" rx="232"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#tile)">
+    <rect width="1024" height="1024" fill="url(#sky)"/>
+    <rect width="1024" height="1024" fill="url(#shine)"/>
+
+    <g transform="translate(-4 -6)">
+      <!-- sun -->
+      <circle cx="400" cy="398" r="330" fill="url(#glow)"/>
+      <circle cx="400" cy="398" r="172" fill="url(#sun)"/>
+
+      <!-- main cloud -->
+      <g fill="url(#cloud)" filter="url(#shadow)">
+        <rect x="262" y="604" width="640" height="196" rx="98"/>
+        <circle cx="548" cy="568" r="172"/>
+        <circle cx="742" cy="620" r="118"/>
+      </g>
+    </g>
+
+    <!-- AI sparkles -->
+    <g fill="#ffffff">
+      <path d="M800 186 C806 236 826 256 876 262 C826 268 806 288 800 338 C794 288 774 268 724 262 C774 256 794 236 800 186 Z" opacity="0.95"/>
+      <path d="M912 346 C915 370 925 380 949 383 C925 386 915 396 912 420 C909 396 899 386 875 383 C899 380 909 370 912 346 Z" opacity="0.8"/>
+    </g>
+
+    <!-- rim light -->
+    <rect x="5" y="5" width="1014" height="1014" rx="227" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="10"/>
+  </g>
+</svg>

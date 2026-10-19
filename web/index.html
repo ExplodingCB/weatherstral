@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weatherstral</title>
+<meta name="description" content="Weatherstral predicts the next 24 hours of temperature, rain chances, and sky conditions for any city, using a small AI model that runs right in your browser.">
+<meta name="theme-color" content="#16264f">
+<link rel="canonical" href="https://weather.explodingcb.com/">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="/icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Weatherstral">
+<meta property="og:title" content="Weatherstral">
+<meta property="og:description" content="Weatherstral predicts the next 24 hours of temperature, rain chances, and sky conditions for any city, using a small AI model that runs right in your browser.">
+<meta property="og:url" content="https://weather.explodingcb.com/">
+<meta property="og:image" content="https://weather.explodingcb.com/og-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Weatherstral: weather forecasts from a small AI model that runs in your browser, next to a screenshot of the app.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Weatherstral">
+<meta name="twitter:description" content="Weatherstral predicts the next 24 hours of temperature, rain chances, and sky conditions for any city, using a small AI model that runs right in your browser.">
+<meta name="twitter:image" content="https://weather.explodingcb.com/og-v2.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="night">
+<main>
+  <header>
+    <form id="search" autocomplete="off" role="search">
+      <input id="q" type="search" placeholder="Search a city…" aria-label="Search for a city" spellcheck="false">
+      <button type="button" id="locate" title="Use my location" aria-label="Use my location">◎</button>
+      <ul id="results" role="listbox" hidden></ul>
+    </form>
+    <div class="seg units" role="group" aria-label="Units">
+      <button type="button" data-unit="F" aria-pressed="true">°F</button>
+      <button type="button" data-unit="C" aria-pressed="false">°C</button>
+    </div>
+  </header>
+
+  <section id="status" aria-live="polite">
+    <div class="spinner" aria-hidden="true"></div>
+    <p id="status-text">Starting…</p>
+    <div class="bar" id="status-bar" hidden><span></span></div>
+  </section>
+
+  <div id="view" hidden>
+    <section class="hero">
+      <h1 id="place"></h1>
+      <p class="temp" id="now-temp"></p>
+      <p class="cond" id="cond"></p>
+      <p class="hl" id="hl"></p>
+    </section>
+
+    <section class="card" id="rain-card">
+      <h2><span>Rain outlook</span><em>experimental</em></h2>
+      <p id="rain-text"></p>
+    </section>
+
+    <section class="card">
+      <h2><span>Hourly forecast</span></h2>
+      <div id="strip" class="strip" role="list"></div>
+    </section>
+
+    <section class="card">
+      <div class="chart-head">
+        <div class="seg" id="metric" role="group" aria-label="Chart type">
+          <button type="button" data-metric="temp" aria-pressed="true">Temperature</button>
+          <button type="button" data-metric="rain" aria-pressed="false">Rain chance</button>
+        </div>
+        <div class="seg" id="range" role="group" aria-label="Hours shown">
+          <button type="button" data-range="6" aria-pressed="false">6h</button>
+          <button type="button" data-range="12" aria-pressed="false">12h</button>
+          <button type="button" data-range="24" aria-pressed="true">24h</button>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <div id="chart" tabindex="0" aria-label="Forecast chart. Use the left and right arrow keys to move along it."></div>
+        <div id="tip" hidden></div>
+      </div>
+      <p class="legend" id="legend"></p>
+      <p class="hint" id="hint">Drag or hover across the chart to read any hour.</p>
+    </section>
+
+    <section class="tiles" id="tiles"></section>
+
+    <p class="foot" id="foot"></p>
+  </div>
+
+  <p id="selftest" hidden></p>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
